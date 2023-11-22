@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <title>REGISTROS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>REGISTRO DE INFORMACION</h2>
+            </div>
+            <div class="card-body" >
+                <form action="#" class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese el nombre">
+                    <label for="poliza">SELECCIONE LA POLIZA</label>
+                    <select name="selectPOLIZA" id="selectPOLIZA" class="form-control">
+                        <option value="Vida">Vida</option>
+                        <option value="Vehiculos">Vehiculos</option>
+                        <option value="Hogar">Hogar</option>
+                        <option value="Viaje">Viaje</option>
+                    </select>
+                    <label for="poliza">SELECCIONE TIPO DE PAGO</label>
+                    <select name="selectFORMAPAGO" class="form-control" id="selectFORMAPAGO">FORMA DE PAGO
+                        <option value="tarjeta">tarjeta</option>
+                        <option value="efectivo">efectivo</option>
+                    
+
+                    </select>
+                    <label for="poliza">SELECCIONE EL TIPO DE FORMA DE ENTREGA</label>
+                    <select name="selectFORMIMPRE" class="form-control" id="selectFORMIMPRE">IMPRESION
+                        <option value="imprimir">imprimir</option>
+                        <option value="whatsap">whatsap</option>
+                    </select>
+                    <br>
+                    <button type="button" class="btn btn-success" onclick="mostrarInfo();">REGISTRAR
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+       
+  
+    <script>
+        function obtenerNombre(){
+            var nombre = document.getElementById("nombre").value;
+            return nombre
+        }
+        function obtenerPoliza(){
+            var poliza = document.getElementById("selectPOLIZA").value;
+            return poliza
+
+        }
+        function obtenerFormaPago(){
+            var fpago = document.getElementById("selectFORMAPAGO").value;
+            return fpago
+
+        }
+        function obtenerFImprimir(){
+            var fimprimir = document.getElementById("selectFORMIMPRE").value;
+            return fimprimir
+
+        }
+
+        function CalcularporPoliza(){
+            var polizaSelect = obtenerPoliza();
+            if (polizaSelect=="Vida"){
+                valorPoliza = 65000;
+                IVA = 65000*0.12;
+
+                desc = (valorPoliza)*0.25;
+                total = valorPoliza-desc+IVA;
+                return total
+            
+            
+
+
+            }else{
+                var n=0;
+            }
+
+
+        }
+        /*  •	Vida $65000 		Descuento 25% 
+            •	Vehículos $ 25000	Descuento $20 (-)
+            •	Hogar $35000		Descuento $15 (-)
+            •	Viajes $15000		Descuento $5 (-)
+        */
+
+        function mostrarInfo(){
+            var obNombre = obtenerNombre();
+            var tipoPoliza = obtenerPoliza();
+            var fpago = obtenerFormaPago();
+            var fimprimir = obtenerFImprimir();
+            var total = CalcularporPoliza();
+            alert("Tu nombre es: "+obNombre+"\nTu poliza es: "+tipoPoliza+
+            "\nTu forma de pago es: "+fpago+"\nTu forma de imprimir es: "+fimprimir+
+            "\nTOTAL ES DE: $"+total);
+
+            
+        }
+
+
+        
+
+      
+        
+    </script>
+</body>
+</html>
