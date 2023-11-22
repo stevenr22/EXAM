@@ -79,16 +79,31 @@
                 total = valorPoliza-desc+IVA;
                 return total
             
-            
+            }else if (polizaSelect=="Vehiculos"){
+                valorPoliza = 25000;
+                total = valorPoliza-20;
+                return total
 
+
+
+            }else if(polizaSelect=="Hogar"){
+                valorPoliza = 35000;
+                tot = valorPoliza-15
+                return tot
 
             }else{
-                var n=0;
+                valorPoliza = 15000;
+                tot = valorPoliza-5
+                return tot
+
             }
 
 
+           
+
+
         }
-        /*  •	Vida $65000 		Descuento 25% 
+        /*  •	
             •	Vehículos $ 25000	Descuento $20 (-)
             •	Hogar $35000		Descuento $15 (-)
             •	Viajes $15000		Descuento $5 (-)
