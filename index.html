@@ -32,10 +32,15 @@
 
                     </select>
                     <label for="poliza">SELECCIONE EL TIPO DE FORMA DE ENTREGA</label>
-                    <select name="selectFORMIMPRE" class="form-control" id="selectFORMIMPRE">IMPRESION
-                        <option value="imprimir">imprimir</option>
-                        <option value="whatsap">whatsap</option>
-                    </select>
+                        <br>
+                        <div>
+                            <input type="checkbox" id="impresion" name="impresion" value="impresion">
+                            <label for="Imprimir"> Imprimir</label><br>
+                            <input type="checkbox" id="correo" name="correo" value="correo">
+                            <label for="correo"> correo</label><br>
+                            <input type="checkbox" id="wasa" name="wasa" value="wasa">
+                            <label for="wasa"> wasa</label><br><br>
+                        </div>
                     <br>
                     <button type="button" class="btn btn-success" onclick="mostrarInfo();">REGISTRAR
                     </button>
@@ -63,11 +68,8 @@
             return fpago
 
         }
-        function obtenerFImprimir(){
-            var fimprimir = document.getElementById("selectFORMIMPRE").value;
-            return fimprimir
 
-        }
+       
 
         function CalcularporPoliza(){
             var polizaSelect = obtenerPoliza();
@@ -97,36 +99,51 @@
                 return tot
 
             }
-
-
-           
-
-
         }
         /*  •	
             •	Vehículos $ 25000	Descuento $20 (-)
             •	Hogar $35000		Descuento $15 (-)
             •	Viajes $15000		Descuento $5 (-)
         */
-
+        
         function mostrarInfo(){
             var obNombre = obtenerNombre();
             var tipoPoliza = obtenerPoliza();
             var fpago = obtenerFormaPago();
-            var fimprimir = obtenerFImprimir();
             var total = CalcularporPoliza();
-            alert("Tu nombre es: "+obNombre+"\nTu poliza es: "+tipoPoliza+
-            "\nTu forma de pago es: "+fpago+"\nTu forma de imprimir es: "+fimprimir+
-            "\nTOTAL ES DE: $"+total);
 
-            
+            //OBTENER FORMA DE ENTREGA
+            //CREO LISTA
+            var opcionesSeleccionadas = [];
+            //AGG VALORES A VARIABLES
+
+            var im = document.getElementById("impresion").checked;
+            var cor = document.getElementById("correo").checked;
+            var was = document.getElementById("wasa").checked;
+
+            //CREO LA CONDICIONAL PARA AGREGAR LOS VALORES A LA LISTA
+            if (im){
+                opcionesSeleccionadas.push("Imprimir");
+
+            }
+            if (cor) {
+                opcionesSeleccionadas.push("Correo");
+            } 
+            if (was) {
+                opcionesSeleccionadas.push("Wasa");
+            }
+
+            //PREGUNTA SI EN LA LISTA EXISTEN VALORES O NO
+            if (opcionesSeleccionadas.length > 0) {
+                alert("Tu nombre es: "+obNombre+"\nTu poliza es: "+tipoPoliza+
+                "\nTu forma de pago es: "+fpago+"\nTu forma de imprimir es: "+opcionesSeleccionadas.join(', ')+
+                "\nTOTAL ES DE: $"+total);
+   
+            } else {
+                alert('No has seleccionado ninguna opción.');
+            }  
         }
 
-
-        
-
-      
-        
     </script>
 </body>
 </html>
