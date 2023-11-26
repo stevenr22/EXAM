@@ -33,14 +33,14 @@
                     </select>
                     <label for="poliza">SELECCIONE EL TIPO DE FORMA DE ENTREGA</label>
                         <br>
-                        <div>
+                
                             <input type="checkbox" id="impresion" name="impresion" value="impresion">
                             <label for="Imprimir"> Imprimir</label><br>
                             <input type="checkbox" id="correo" name="correo" value="correo">
                             <label for="correo"> correo</label><br>
                             <input type="checkbox" id="wasa" name="wasa" value="wasa">
                             <label for="wasa"> wasa</label><br><br>
-                        </div>
+                     
                     <br>
                     <button type="button" class="btn btn-success" onclick="mostrarInfo();">REGISTRAR
                     </button>
@@ -66,11 +66,7 @@
         function obtenerFormaPago(){
             var fpago = document.getElementById("selectFORMAPAGO").value;
             return fpago
-
         }
-
-       
-
         function CalcularporPoliza(){
             var polizaSelect = obtenerPoliza();
             if (polizaSelect=="Vida"){
